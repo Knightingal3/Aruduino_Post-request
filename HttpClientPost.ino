@@ -33,7 +33,7 @@
 // Server details ---------------------------------------------------
 
 	const char server[] = "serverIP";
-	const char resource[] = "api_root_url/";
+	const char resource[] = "Aruduino_Post-request-master/process-request.php";
 	const int  port = 8080;
 
 // Importing httpClient libraries --------------------------------------
@@ -111,9 +111,10 @@
  // Attempting post request --------------------------------------------
 
 	Serial.println("making POST request");
-  	String contentType = "application/x-www-form-urlencoded";
+  	String contentType = "application/json";
+	String authorization = "knightingal3";
   	String postData = "name=Arinze&age=26";
-	client.post(resource, contentType, postData);
+	client.post(resource, contentType, authorization, postData);
 
  // read the status code and body of the response -------------------------
 
