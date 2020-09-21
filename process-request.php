@@ -10,7 +10,15 @@ header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$requestMethod = $_SERVER["REQUEST_METHOD"];
+
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic user="knightingal3"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'User not authorized';
+    exit;
+} else {
+  
+	$requestMethod = $_SERVER["REQUEST_METHOD"];
 
 if(strtolower(trim($requestMethod))=='post'){
 
@@ -31,6 +39,9 @@ if(strtolower(trim($requestMethod))=='post'){
                    ]
                   );
 }
+
+}
+
 
 ?>
 
