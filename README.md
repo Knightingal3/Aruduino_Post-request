@@ -20,7 +20,7 @@
 ### Client side:
    On system activation the arduino sets the gsm module to gprs mode using the required AT Commmands
    via serial communication protocol.
-   When connection between ISP and the gsm module has been established, the arduino tries a post request 
+   When connection between the ISP and the gsm module have been established, the arduino tries a post request 
    to the using the defiened parameters.
    
 ### Server Side:
